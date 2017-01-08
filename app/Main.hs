@@ -1,6 +1,13 @@
 module Main where
 
-import Lib
+import           Lib
+import           ParseCommand
 
 main :: IO ()
-main = someFunc
+main = mainloop
+
+mainloop :: IO ()
+mainloop =
+    do line <- getLine
+       case parseCommand line of
+         Quit -> putStrLn "quit!"

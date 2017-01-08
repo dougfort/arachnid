@@ -1,2 +1,9 @@
+
+import           ParseCommand
+import           Test.Hspec
+
 main :: IO ()
-main = putStrLn "Test suite not yet implemented"
+main = hspec $
+  describe "Prelude.read" $
+    it "can parse 'quit'" $
+      parseCommand "quit" `shouldBe` Quit
